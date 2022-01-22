@@ -1,0 +1,30 @@
+<table>
+  <tbody>
+    <tr *ngFor="let row of [4,3,2,1,0]">
+      <td *ngFor="let col of [0,1,2,3,4]">
+        x:{{tableTop.squareMatrix[row][col].x}} y:{{tableTop.squareMatrix[row][col].y}} <br/>
+        {{ placed && robot.x == col && robot.y == row ? robot.direction : ""}}
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<div id="commands">
+</div>
+
+<form [formGroup]="InputForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="command">
+      Command:
+    </label>
+    <input id="command" type="text" formControlName="command">
+  </div>
+  <button class="button" type="submit">Run</button>
+</form>
+
+<div>
+  <span *ngFor="let command of oldCommands">
+    {{command}}<br/>
+  </span>
+</div>
