@@ -28,7 +28,6 @@ export class AppComponent {
   }
 
   onSubmit(): void {
-    //check commands
     let command = this.InputForm.value.command;
     if(command.match(/^PLACE \d{1},\d{1},\w{4,5}/)){ //regEx for PLACE + SPACE + 1DIGITT + , + 1 DIGIT + , + 4-5 LETTER WORD
       let indexes: Movement = this.tableTop.getMatrixIndexOfSquare(command.replace(/\ |\,/g,'_'));

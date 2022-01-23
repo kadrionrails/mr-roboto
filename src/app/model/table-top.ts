@@ -5,16 +5,11 @@ export class TableTop{
     squareMatrix: Square[][];
     //starting point can be northwest, northeast, southwest,southeast
     startingPoint: string;
-    directionArrays:{
-        rowArray: number[],
-        colArray: number[]
-    }
 
     constructor(items: any){
         this.startingPoint = items.startingPoint || "SouthWest";
         this.squareMatrix = [];
         this.setTableTopByDirection();
-        this.directionArrays = this.getDirectionArrays();
     }
 
     getMatrixIndexOfSquare(squareIndex: string): Movement {
@@ -31,20 +26,6 @@ export class TableTop{
         });
         result.direction = squareIndex.split('_')[3];
         return result;
-    }
-
-    getDirectionArrays(): {rowArray: number[], colArray: number[]}{
-        switch (this.startingPoint) {
-            case 'NorthWest':
-                return {rowArray: [0,1,2,3,4], colArray: [0,1,2,3,4]};
-            case 'NorthEast':
-                return {rowArray: [0,1,2,3,4], colArray: [4,3,2,1,0]};
-            case 'SouthWest':
-                return {rowArray: [4,3,2,1,0], colArray: [0,1,2,3,4]};
-            case 'SouthEast':
-                return {rowArray: [4,3,2,1,0], colArray: [4,3,2,1,0]};
-        }
-        return {rowArray: [4,3,2,1,0], colArray: [0,1,2,3,4]};
     }
 
     setTableTopByDirection(){
