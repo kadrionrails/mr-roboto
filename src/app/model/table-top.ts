@@ -11,7 +11,7 @@ export class TableTop{
     }
 
     constructor(items: any){
-        this.startingPoint = items.startingPoint || "SouthEast";
+        this.startingPoint = items.startingPoint || "SouthWest";
         this.squareMatrix = [];
         this.setTableTopByDirection();
         this.directionArrays = this.getDirectionArrays();
